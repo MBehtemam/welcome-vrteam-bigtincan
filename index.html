@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome message to Bigtincan's VR team</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="front-2" crossorigin="anonymous" src="./assets/front-2.jpeg" />
+        <img id="top-1" crossorigin="anonymous" src="./assets/top-1.jpeg" />
+        <a-asset-item
+          id="bigtincan-text"
+          src="./assets/bigtincan.gltf"
+        ></a-asset-item>
+      </a-assets>
+      <!-- 360-degree image. -->
+      <a-sky
+        id="image-360"
+        radius="10"
+        src="#front-2"
+        animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+        animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"
+      ></a-sky>
+      <a-entity
+        position="-1 2.5 5"
+        rotation="1 180 0"
+        scale="0.5 0.5 0.5"
+        gltf-model="#bigtincan-text"
+        animation="property: rotation; to: 1 -180 0; dur: 6000; easing: linear; loop: true"
+      ></a-entity>
+      <a-entity
+        id="welcomeTo"
+        position="-1.38 0 5"
+        rotation="0 153 0"
+        text-geometry=";  
+			size: 0.5; 
+			height: 0.1;
+			bevelEnabled: true;
+			bevelSize: 0.02;
+			bevelThickness: 0.02;
+			value: Welcome To"
+        material="color: #FFFF; src: #hexagons; repeat: 20 20;"
+      ></a-entity>
+      <a-entity
+        id="CPH"
+        position="-1.38 -0.7 5"
+        rotation="0 153 0"
+        text-geometry=";  
+          size: 0.5; 
+          height: 0.1;
+          bevelEnabled: true;
+          bevelSize: 0.02;
+          bevelThickness: 0.02;
+          value: CPH"
+        material="color: red; src: #hexagons; repeat: 20 20;"
+      >
+      </a-entity>
+      <!-- <a-camera look-controls  position="0 0 0" rotation="0 180 0"></a-camera> -->
+    </a-scene>
+  </body>
+</html>
